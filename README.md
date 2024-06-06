@@ -1,5 +1,5 @@
 
-# Netflix Clone
+# Resturant Website
 
 It is an simple Frontend Clone Website made by using pure JavaScript .
 
