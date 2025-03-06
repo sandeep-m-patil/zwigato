@@ -82,7 +82,7 @@
 
 
     <div id="cart-items" class="card-deck row my-5 mx-0">
-
+      <div class="col-12 text-center text-primary fs-4">Cart is Empty</div>
     </div>
 
     <div class="total text-primary fs-2 mx-auto text-center"></div>
@@ -294,6 +294,7 @@
 
     function addToCart(productId) {
 
+      
       const product = document.querySelector(`.product[data-id="${productId}"]`);
       const productName = foods[productId].name;
       const productPrice = foods[productId].amount;
@@ -357,39 +358,45 @@ function removeCart(productId) {
 // Function to update the cart UI
 function updateCartUI(data) {
   let hs = ``;
-  for (i = 0; i < data.length; i++) {
-    hs = hs + `
-      <div class="col-xs-12 col-sm-6 col-md-3 mb-5 product" data-id="${i}">
-        <div class="card">
-          <img src="${data[i].img}" class="card-img" alt="${data[i].name}">
-          <div class="card-img-overlay">
-            <span class="card-text text-warning bg-black p-1 w-50">${data[i].name}</span>
-            <span class="card-text text-light bg-black p-1 float-end end-0">₹ ${data[i].amount} X ${data[i].quantity}</span>
-            
-            <span class="card-text position-absolute bottom-0 end-0 fs-6 text-black rounded-3 p-1 m-1">
-              <button onclick="removeCart(${data[i].id})" class="btn btn-primary" type="button"> Remove
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
-                  <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5"/>
-                </svg>
-              </button>
-            </span>
+  
+  if (data.length === 0) {
+    hs = `<div class="col-12 text-center text-primary fs-4">Cart is Empty</div>`;
+  } else {
+    for (i = 0; i < data.length; i++) {
+      hs = hs + `
+        <div class="col-xs-12 col-sm-6 col-md-3 mb-5 product" data-id="${i}">
+          <div class="card">
+            <img src="${data[i].img}" class="card-img" alt="${data[i].name}">
+            <div class="card-img-overlay">
+              <span class="card-text text-warning bg-black p-1 w-50">${data[i].name}</span>
+              <span class="card-text text-light bg-black p-1 float-end end-0">₹ ${data[i].amount} X ${data[i].quantity}</span>
+              
+              <span class="card-text position-absolute bottom-0 end-0 fs-6 text-black rounded-3 p-1 m-1">
+                <button onclick="removeCart(${data[i].id})" class="btn btn-primary" type="button"> Remove
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                    <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5"/>
+                  </svg>
+                </button>
+              </span>
 
-            <span class="card-text position-absolute bottom-0 start-0 fs-4 fw-bolder text-black rounded-3 m-1 p-1">   
-              <button onclick="count(-1, ${i})" class="btn btn-danger" type="button">-</button>
-              <button onclick="count(+1, ${i})" class="btn btn-success" type="button">+</button>
-            </span>
+              <span class="card-text position-absolute bottom-0 start-0 fs-4 fw-bolder text-black rounded-3 m-1 p-1">   
+                <button onclick="count(-1, ${i})" class="btn btn-danger" type="button">-</button>
+                <button onclick="count(+1, ${i})" class="btn btn-success" type="button">+</button>
+              </span>
+            </div>
           </div>
-        </div>
-      </div>`;
+        </div>`;
+    }
   }
 
   document.querySelector('#cart-items').innerHTML = hs + `<p id="cart-total" class="fs-3 text-center mx-auto text-light"></p>`;
 
   // Update the total price in the cart
   const cartTotalElement = document.querySelector('.total');
-  const cartTotal = cart.reduce((total, item) => total + item.amount * item.quantity, 0);
+  const cartTotal = data.reduce((total, item) => total + item.amount * item.quantity, 0);
   cartTotalElement.textContent = "Total = ₹ " + cartTotal.toFixed(2);
 }
+
 
 
   </script>
