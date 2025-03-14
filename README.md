@@ -23,8 +23,7 @@ The Key topics used in this are : List and DOM .
 
 
 
+## Live Demo
 
-## 🔗 Follow ME on 
+[https://sandeep-m-patil.github.io/React-Tailwindcss/](https://sandeep-m-patil.github.io/React-Tailwindcss/)
 
-
-[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/psandeep2005/)
