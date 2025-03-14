@@ -25,5 +25,5 @@ The Key topics used in this are : List and DOM .
 
 ## Live Demo
 
-[https://sandeep-m-patil.github.io/React-Tailwindcss/](https://sandeep-m-patil.github.io/React-Tailwindcss/)
+[https://sandeep-m-patil.github.io/zwigato/](https://sandeep-m-patil.github.io/zwigato/)
 
