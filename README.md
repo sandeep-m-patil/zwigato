@@ -9,13 +9,7 @@ The Key topics used in this are : List and DOM .
 
 
 
-## Features
 
-- Good Search system
-
-
-## 🚀 About Me
-I'm a Frontend developer. Pursuing my Btech in CSE(AI & ML).
 
 
 
